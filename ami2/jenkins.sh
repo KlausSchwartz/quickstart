@@ -27,7 +27,8 @@ read -p 'Path (no Input = "./v_jenkins") ' jpath < /dev/tty
 if [ -z "$jpath" ]
 then
 #empty input
-jpath="$(pwd)/v_jenkins"
+currentPath=$(pwd)
+jpath="$currentPath/v_jenkins"
 fi
 echo ""
 echo OK, Jenkins configuration data will be stored in $jpath

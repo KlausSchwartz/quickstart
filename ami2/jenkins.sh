@@ -23,11 +23,11 @@ echo ""
 
 echo "Please enter a path for the jenkins volume, where Jenkins should store configuration data"
 echo "( be carefull, this directory is accessable out of jenkins and insecure )"
-read -p 'Path (no Input = "~/v_jenkins") ' jpath < /dev/tty
+read -p 'Path (no Input = "./v_jenkins") ' jpath < /dev/tty
 if [ -z "$jpath" ]
 then
 #empty input
-jpath="~/v_jenkins"
+jpath="${pwd}/v_jenkins"
 fi
 echo ""
 echo OK, Jenkins configuration data will be stored in $jpath

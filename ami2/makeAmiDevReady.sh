@@ -16,21 +16,32 @@ echo "#######################################################"
 #step 2
 sudo yum groupinstall "Development Tools" -y
 
+#step 3
 echo "####################################"
-echo " step 3: Install and start Docker   "
+echo " step 3: Install mc "
+echo " with 'sudo yum install mc -y' "
+echo "####################################"
+
+#step 3
+sudo yum install mc -y
+
+
+echo "####################################"
+echo " step 4: Install and start Docker   "
 echo " with 'sudo yum install docker -y'  "
 echo " and  'sudo service docker start'   "
 echo "####################################"
 
-#step 3
+#step 4
 sudo yum install docker -y && sudo service docker start
 
+
 echo "####################################"
-echo " step 4: Configure current user to use Docker without Sudo "
+echo " step 5: Configure current user to use Docker without Sudo "
 echo " by creating a Docker group and adding the current user to it "
 echo "####################################"
 
-#step 4
+#step 5
 
 #create docker group
 sudo groupadd docker
@@ -42,11 +53,11 @@ sudo gpasswd -a $USER docker
 newgrp docker
 
 echo "####################################"
-echo " step 5: Test Docker "
+echo " step 6: Test Docker "
 echo " with 'docker run hello-world' "
 echo "####################################"
 
-#step 5
+#step 6
 docker run hello-world
 
 

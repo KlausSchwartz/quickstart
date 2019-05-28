@@ -1,6 +1,5 @@
 # quickstart
 
-
 This Script should be usable like this:
 
 to make a new ami2 ec2 instance dev ready use:

@@ -1,3 +1,8 @@
 #!/bin/bash
 
-echo "Hello Ami2"
+echo "###########################"
+echo " step 1: update everything"
+echo "##########################"
+
+sudo yum update
+

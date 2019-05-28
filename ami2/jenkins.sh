@@ -47,12 +47,9 @@ then
     sudo chmod 777 $jpath
 
     #create a script to start jenkins
-    echo "docker run --name jenkins -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts" > $jpath/startJenkins.sh
+    echo "docker run -d --name jenkins -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts" > $jpath/startJenkins.sh
 
     #install jenkins
-    docker run -d --name jenkins -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts
-
-    #show log (for inital password)
-    docker logs --jenkins
+    docker run --name jenkins -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts
 
 fi

@@ -8,7 +8,7 @@ echo ""
 echo ""
 
 echo "Which Port should Jenkins use to be reached from the outside?"
-read -p 'Port (no Input = 8080): ' jport
+read -p 'Port (no Input = 8080): ' jport < /dev/tty
 
 if [ -z "$jport" ]
 then
@@ -23,7 +23,7 @@ echo ""
 
 echo "Please enter a path for the jenkins volume, where Jenkins should store configuration data"
 echo "( be carefull, this directory is accessable out of jenkins and insecure )"
-read -p 'Path (no Input = "~/v_jenkins") ' jpath
+read -p 'Path (no Input = "~/v_jenkins") ' jpath < /dev/tty
 if [ -z "$jpath" ]
 then
 #empty input
@@ -35,7 +35,7 @@ echo ""
 echo ""
 
 echo "Are you sure to install Jenkins with these parameters?"
-read -p 'Install Jenkins? (y/n) ' -n 1 -r
+read -p 'Install Jenkins? (y/n) ' -n 1 -r < /dev/tty
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 

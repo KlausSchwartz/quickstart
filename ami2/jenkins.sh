@@ -46,7 +46,13 @@ then
     #set permissions for jpath (need a better solution here!)
     sudo chmod 777 $jpath
 
+    #create a script to start jenkins
+    echo "docker run --name jenkins -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts" > $jpath/startJenkins.sh
+
     #install jenkins
-    docker run -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts
+    docker run -d --name jenkins -p 8080:$jport -p 50000:50000 -v $jpath:/var/jenkins_home jenkins/jenkins:lts
+
+    #show log (for inital password)
+    docker logs --jenkins
 
 fi
